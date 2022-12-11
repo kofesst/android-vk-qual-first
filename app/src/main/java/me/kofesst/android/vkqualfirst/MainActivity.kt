@@ -1,0 +1,35 @@
+package me.kofesst.android.vkqualfirst
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import me.kofesst.android.vkqualfirst.presentation.ChooseCategoriesScreen
+import me.kofesst.android.vkqualfirst.presentation.ChooseCategoriesViewModel
+import me.kofesst.android.vkqualfirst.ui.theme.VkQualFirstTheme
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            VkQualFirstTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    ChooseCategoriesScreen(
+                        viewModel = ChooseCategoriesViewModel(),
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(20.dp)
+                    )
+                }
+            }
+        }
+    }
+}
